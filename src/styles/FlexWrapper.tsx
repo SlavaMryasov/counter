@@ -11,4 +11,8 @@ export const FlexWrapper = styled.div<FlexWrapperPropsType>`
   align-items: ${(props) => props.align};
   height: 90vh;
   gap: 50px;
+
+  @media screen and (max-width: 960px){
+    flex-direction: column;
+  }
 `;

@@ -2,19 +2,22 @@ import styled from "styled-components";
 import { Box } from "../styles/Box";
 import { Button } from "./globalComponents/Button";
 import { Theme } from "../styles/Theme";
+import { DisabledType } from "../App";
 
 type CounterWindowsPropsType = {
   counterValue: string | number;
   maxValue: number;
   inc: () => void;
   reset: () => void;
+  disabled: DisabledType
 };
 
 export const CounterWindow: React.FC<CounterWindowsPropsType> = ({
   counterValue,
   maxValue,
   inc,
-  reset
+  reset,
+  disabled
 }) => {
   return (
     <Box width="400px" height="300px">
@@ -24,8 +27,8 @@ export const CounterWindow: React.FC<CounterWindowsPropsType> = ({
         </StyledCounterValue>
       </Box>
       <Box width="360px" height="90px" direction="row">
-        <Button title="inc" callBack={inc} />
-        <Button title="reset" callBack={reset}/>
+        <Button title="inc" callBack={inc} disabled={disabled.inc}/>
+        <Button title="reset" callBack={reset} disabled={disabled.reset}/>
       </Box>
     </Box>
   );

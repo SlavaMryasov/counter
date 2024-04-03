@@ -3,11 +3,12 @@ import { Theme } from "../../styles/Theme";
 
 type ButtonPropsType = {
   title: string;
+  disabled?: boolean
   callBack?: () => void;
 };
 
-export const Button: React.FC<ButtonPropsType> = ({ title, callBack }) => {
-  return <StyledButton disabled={false} onClick={callBack}>{title}</StyledButton>;
+export const Button: React.FC<ButtonPropsType> = ({ title,disabled, callBack }) => {
+  return <StyledButton disabled={disabled} onClick={callBack}>{title}</StyledButton>;
 };
 
 const StyledButton = styled.button`
